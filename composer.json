@@ -1,0 +1,30 @@
+{
+    "name" : "Zurd2/tiny-back",
+    "description" : "Crud generator for Symfony3",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Daniel Guerrero González",
+        "email" : "danielguerrero9@hotmail.com"
+    }],
+    "keywords" : [
+        "crud generator symfony"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Zurd2\\SmallCrudBundle" : ""
+        }
+    },
+    "target-dir" : "Zurd2/SmallCrudBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "1-dev"
+        }
+    }
+}
