@@ -30,6 +30,17 @@ class Configuration implements ConfigurationInterface
     {
         $rootNode
             ->children()
+                ->arrayNode('login')
+                    ->children()
+                        ->scalarNode('path')
+                            ->defaultValue('app_login_page')
+                            ->info('Path of login page')
+                            ->example('app_login_page')
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+            ->children()
                 ->arrayNode('menu')
                     ->normalizeKeys(false)
                     ->defaultValue(array())
