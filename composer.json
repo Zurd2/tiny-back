@@ -1,5 +1,5 @@
 {
-    "name" : "Zurd2/tiny-back",
+    "name" : "zurd2/tiny-back",
     "description" : "Crud generator for Symfony3",
     "type" : "symfony-bundle",
     "authors" : [{
