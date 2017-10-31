@@ -1,0 +1,3 @@
+services:
+    scb_entity_service:
+        class:  Zurd2\SmallCrudBundle\Services\EntityService

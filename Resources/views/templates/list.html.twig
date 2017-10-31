@@ -1,0 +1,69 @@
+{% extends '@SmallCrud/base_logged.html.twig' %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-9">
+            <h1>{{ entityName }} list</h1>
+        </div>
+
+        <div class="col-md-3">
+            <a class="btn btn-default btn-lg btn-success pull-right"
+                    href="{{ path('crud_new', {'entityName': entityName}) }}">Create a new entry
+            </a>
+        </div>
+
+        <div class="col-md-12">
+            <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid"
+                   aria-describedby="datatable_info">
+                <thead>
+                    <tr>
+                    {% for attr in entityAttr %}
+                        <th>{{ attr.name | capitalize }}</th>
+                    {% endfor %}
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('crud_show', {'entityName': entityName, 'id': entity.id }) }}">
+                                {{ entity.id }}
+                            </a>
+                        </td>
+
+                        {% for attr in entityAttr %}
+                            {% if attr.name != 'id' %}
+                                <td>
+                                    {% if attr.type == 'date' %}
+                                        {{ attribute(entity, attr.name) | date('Y-m-d') }}
+                                    {% else %}
+                                        {{ attribute(entity, attr.name) }}
+                                    {% endif %}
+                                </td>
+                            {% endif %}
+                        {% endfor %}
+
+                        <td class="actions">
+                            <a href="{{ path('crud_show', {'entityName': entityName, 'id': entity.id}) }}">
+                                <i class="fa fa-search"></i>
+                            </a>
+                            <a href="{{ path('crud_edit', {'entityName': entityName, 'id': entity.id}) }}">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready(function(){
+            $('#datatable').DataTable();
+        });
+    </script>
+{% endblock %}
